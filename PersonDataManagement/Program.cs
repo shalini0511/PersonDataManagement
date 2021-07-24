@@ -17,6 +17,7 @@ namespace PersonDataManagement
             Console.WriteLine("Enter 4. Calculating average age");
             Console.WriteLine("Enter 5.Search Specific name in list");
             Console.WriteLine("Enter 6. Skip record which less than 60 ");
+            Console.WriteLine("Enter 7 . Remove the specific name in list");
             Console.WriteLine("Enter the option");
             int option = Convert.ToInt32(Console.ReadLine());
             switch (option)
@@ -41,6 +42,9 @@ namespace PersonDataManagement
                     break;
                 case 6:
                     PersonData.SkipRecordLessThan60(list);
+                    break;
+                case 7:
+                    PersonData.RemoveSpecificName(list, "Radhika");
                     break;
                 default:
                     Console.WriteLine("Enter valid option");
