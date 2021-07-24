@@ -7,6 +7,7 @@ namespace PersonDataManagement
 {
     class PersonData
     {
+
         /// <summary>
         /// UC1-Adding Person details and display it. 
         /// </summary>
@@ -18,11 +19,11 @@ namespace PersonDataManagement
             {
                 if (list.Count >= 0)
                 {
-                    list.Add(new Person() { SSN = 1, name = "Shalini", address = "Chennai", age = 21 });
-                    list.Add(new Person() { SSN = 2, name = "Jay", address = "Bangalore", age = 27 });
+                    list.Add(new Person() { SSN = 1, name = "Radhika", address = "Chennai", age = 21 });
+                    list.Add(new Person() { SSN = 2, name = "Priya", address = "Bangalore", age = 27 });
                     list.Add(new Person() { SSN = 3, name = "Arun", address = "Pondicherry", age = 35 });
-                    list.Add(new Person() { SSN = 4, name = "Magesh", address = "Madurai", age = 37 });
-                    list.Add(new Person() { SSN = 5, name = "Raksha", address = "Hyderabad", age = 41 });
+                    list.Add(new Person() { SSN = 4, name = "Ajoy", address = "Madurai", age = 37 });
+                    list.Add(new Person() { SSN = 5, name = "Kishore", address = "Hyderabad", age = 41 });
                 }
                 else if (list.Count == 0)
                 {
@@ -68,7 +69,39 @@ namespace PersonDataManagement
             }
             return false;
         }
+        /// <summary>
+        /// UC3-Retrieve teenage records
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
+        public static bool RetrieveTeenageRecords(List<Person> list)
+        {
+            Console.WriteLine("\n----------Retrieve Records which is Age between 13 to 18-----------\n");
+            try
+            {
+                AddPerson(list);
 
+                if (list.Count > 0)
+                {
+                    var ageResult2 = list.FindAll(a => a.age > 13 && a.age < 18);
+
+
+                    IterateThroughList(ageResult2);
+                    return true;
+
+                }
+                else
+                {
+                    Console.WriteLine("No data present in list");
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
         public static void IterateThroughList(List<Person> list)
         {
             foreach (Person person in list)
