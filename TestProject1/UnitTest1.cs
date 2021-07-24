@@ -34,5 +34,13 @@ namespace TestProject1
             var actual = PersonData.CalculateAverageAge(list);
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void TestMethodForSearchingSpecificName()
+        {
+            ///AAA Method
+            bool expected = true;
+            var actual = PersonData.SearchingSpecificName(list, "Arun");
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
